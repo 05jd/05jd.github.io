@@ -6,10 +6,6 @@ permalink: latex-equation-rendering-in-javascript-with-jekyll-and-katex
 {% include mathjax.html %}
 {% include katex.html %}
 
-[Ref] https://xuc.me/blog/KaTeX-and-Jekyll/
-
-[Ref] http://willdrevo.com/latex-equation-rendering-in-javascript-with-jekyll-and-katex/
-
 ---
 ## MathJax
 
@@ -22,14 +18,16 @@ TeX 렌더링을 할 때 많이 사용하는 것이 MathJax다. 사용법은 단
 ```
 3. post 파일 시작 부분에 {\% include mathjax.html \%} 추가 (\는 빼고)
 
-이제 테스트를 해보자.
+테스트를 해보자.
 
 ```
 수식은 $$a^2 + b^2 = \sum_{i=0}^n c_i^2$$ 이렇게 표현 됩니다. 
 ```
+
 > 수식은 $$a^2 + b^2 = \sum_{i=0}^n c_i^2$$ 이렇게 표현 됩니다.
 
 또는
+
 ```
 \begin{equation}
     R = \mathbb{E}\left[ \sum_{i \geq 0} S_i \right]
@@ -52,7 +50,8 @@ MathJax가 사용하기 편하지만 렌더링이 느리다는 단점이 있다.
 그래서 빠른 렌더링을 위해 KaTeX를 사용하는 분들도 있다. 
 이번에 Jekyll로 페이지 구성을 하면서 어차피 환경설정을 하고 있으니 KaTeX 연동에 대해서도 함께 작성해본다.
 
-# 2. Without KaTeX Plugin
+슬픈 사실은 Github가 Jekyll을 지원하지만 custom plugin은 지원하지 않는다고 한다[2][2].
+직접 compile 후 포스팅을 하는 방법을 [2][2]에서 자세히 설명해주고 있으나 여기서는 plugin 없이 KaTeX을 활용하는 방법도 알아보자.
 
 Markdown parser로 MathJax를 사용하도록 _config.yml에 설정을 추가하자.
 ```
@@ -63,8 +62,9 @@ kramdown:
 
 이제 Jekyll build를 해보면 결과 html 파일에서 "math/tex" 태그로 수식이 감싸 있는 것을 볼 수 있다.
 
-# 2. KaTeX 연동
-이제 KaTeX을 사용하도록 header에 관련 설정을 추가해야 한다. 이를 위해 또 include 폴더에 아래와 같이 두 개의 설정 파일을 만들자. (katex.html, katex_render.html)
+마지막으로 KaTeX을 사용하도록 header에 관련 설정을 추가해야 한다. 
+include 폴더에 아래와 같이 두 개의 설정 파일을 만들자. (katex.html, katex_render.html)
+
 ```
 <!-- Load jQuery -->
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
@@ -84,6 +84,7 @@ kramdown:
 
 이제 다 끝났다. 포스팅 하면서 Markdown 파일을 아래와 같은 구조로 작성하면 된다.
 (include 부분에서 역시 \는 제거하면 된다.)
+
 ```
 ---
 layout: post
@@ -97,6 +98,7 @@ tile: blahblah
 ```
 
 수식을 사용해보자. 조금 귀찮다.
+
 ```
 {\% raw \%}
 <!-- The Normal Distribution -->
@@ -110,3 +112,15 @@ tile: blahblah
 {% endraw %}
 
 {% include katex_render.html %} 
+
+
+---
+## Reference
+
+\[1\] [https://xuc.me/blog/KaTeX-and-Jekyll/][1]  
+\[2\] [https://www.drewsilcock.co.uk/custom-jekyll-plugins][2]  
+\[3\] [http://willdrevo.com/latex-equation-rendering-in-javascript-with-jekyll-and-katex/][3]
+
+[1]: https://xuc.me/blog/KaTeX-and-Jekyll/
+[2]: https://www.drewsilcock.co.uk/custom-jekyll-plugins
+[3]: http://willdrevo.com/latex-equation-rendering-in-javascript-with-jekyll-and-katex/
