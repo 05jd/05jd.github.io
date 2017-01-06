@@ -1,13 +1,13 @@
 ---
 layout: post
-title: Jekyll에서 TeX 사용하기 (MathJax & KaTeX)
-permalink: latex-equation-rendering-in-javascript-with-jekyll-and-katex
+title: Jekyll에서 TeX 사용하기 
+permalink: using-tex-with-jekyll
 ---
 {% include mathjax.html %}
 {% include katex.html %}
 
----
 ## MathJax
+---
 
 TeX 렌더링을 할 때 많이 사용하는 것이 MathJax다. 사용법은 단순히 header에 추가하면 된다. Jekyll에서는 아래와 같이 사용하면 된다.
 
@@ -43,8 +43,8 @@ TeX 렌더링을 할 때 많이 사용하는 것이 MathJax다. 사용법은 단
 다만 주의할 것은 include에 만들 때 head.html로 만들면 default head.html의 다른 설정을 덮어버리므로 다른 이름을 사용해야 한다.
 매번 include를 하기 귀찮아서 head.html에 추가하고 싶었지만 방법은 아직...
 
----
 ## KaTeX
+---
 
 MathJax가 사용하기 편하지만 렌더링이 느리다는 단점이 있다. (...라고 어느 블로그에서 말하지만 잘 모르겠다. 보통 포스팅 할때 수식으로 도배하는 경우는 잘 없으니...)
 그래서 빠른 렌더링을 위해 KaTeX를 사용하는 분들도 있다. 
@@ -110,12 +110,13 @@ tile: blahblah
 <!-- The Normal Distribution -->
 <div class="equation" data-expr="\displaystyle P(x)=\frac{1}{\sigma\sqrt{2\pi}}e^{-\frac{(x-\mu)^2}{2\sigma ^2}}"></div>
 {% endraw %}
-
+  
+  
 {% include katex_render.html %} 
-
-
----
+  
+   
 ## Reference
+---
 
 \[1\] [https://xuc.me/blog/KaTeX-and-Jekyll/][1]  
 \[2\] [https://www.drewsilcock.co.uk/custom-jekyll-plugins][2]  
