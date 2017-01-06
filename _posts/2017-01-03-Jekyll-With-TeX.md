@@ -12,7 +12,7 @@ permalink: using-tex-with-jekyll
 TeX 렌더링을 할 때 많이 사용하는 것이 MathJax다. 사용법은 단순히 header에 추가하면 된다. Jekyll에서는 아래와 같이 사용하면 된다.
 
 1. _inlcude/mathjax.html 파일 생성
-2. mathjax.html에 아래 문구 추가
+2. mathjax.html에 아래 문구 추가  
 ```    
 <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
 ```
